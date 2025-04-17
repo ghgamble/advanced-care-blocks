@@ -48,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...blockProps}>
+			<div {...blockProps} as="section" aria-label="Contact Section">
 				<div className="o-container contact-section-inner">
 					<InnerBlocks
 						template={template}

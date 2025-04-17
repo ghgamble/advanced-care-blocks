@@ -65,6 +65,7 @@
 					border: 1px solid #ccc;
 					border-radius: 0.5rem;
 					font-size: 1rem;
+					line-height: 1.5; // ✅ ADA: Improves text legibility
 				}
 
 				textarea {
@@ -99,6 +100,11 @@
 
 					&:hover {
 						background-color: #449c84;
+					}
+
+					&:focus {
+						outline: 2px solid #1f3e68; // ✅ ADA: Ensure keyboard visibility
+						outline-offset: 2px;
 					}
 				}
 

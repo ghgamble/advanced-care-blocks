@@ -17,9 +17,10 @@ export default function Save({ attributes }) {
             muted
             playsInline
             className="acb-hero-video"
+            aria-hidden="true"
           />
         ) : (
-          <img src={mediaUrl} alt="" className="acb-hero-image" />
+          <img src={mediaUrl} alt="" className="acb-hero-image" aria-hidden="true" />
         ))}
     </div>
   );
