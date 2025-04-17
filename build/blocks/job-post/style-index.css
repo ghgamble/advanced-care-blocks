@@ -1,0 +1,69 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/job-post/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+.job-post-block {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #2f2f2f;
+}
+.job-post-block .job-post-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.job-post-block .job-post-inner .job-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2f2f2f;
+}
+.job-post-block .job-post-inner .job-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.job-post-block .job-post-inner .job-meta .job-date {
+  font-size: 1rem;
+  color: #555;
+}
+.job-post-block .job-post-inner .job-meta .job-button {
+  background-color: #52b79a;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+.job-post-block .job-post-inner .job-meta .job-button:hover {
+  background-color: #449c84;
+}
+@media (max-width: 768px) {
+  .job-post-block .job-post-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .job-post-block .job-post-inner .job-title {
+    width: 100%;
+  }
+  .job-post-block .job-post-inner .job-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .job-post-block .job-post-inner .job-meta .job-date {
+    width: 100%;
+    text-align: left;
+  }
+  .job-post-block .job-post-inner .job-meta .job-button {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -1,0 +1,38 @@
+{
+  "apiVersion": 2,
+  "name": "acb/image-grid",
+  "title": "Image Grid",
+  "category": "advancedcare-blocks",
+  "description": "Responsive three-column image grid with styled images and optional overlay labels.",
+  "supports": {
+    "align": false,
+    "html": false
+  },
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "imageIds": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

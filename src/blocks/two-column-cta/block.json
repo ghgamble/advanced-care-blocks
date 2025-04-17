@@ -1,0 +1,21 @@
+{
+    "apiVersion": 2,
+    "name": "acb/two-column-cta",
+    "title": "Two Column CTA",
+    "category": "advancedcare-blocks",
+    "description": "Two column CTA with full-width image and constrained content.",
+    "supports": {
+      "align": ["full"],
+      "html": false
+    },
+    "attributes": {
+      "mediaUrl": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}
+  

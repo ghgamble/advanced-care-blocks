@@ -1,0 +1,110 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/info-with-tabs/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.gradient-tabs-block {
+  position: relative;
+  margin-block: 2rem;
+}
+.gradient-tabs-block .tabs-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 3;
+  position: relative;
+  padding-bottom: 0;
+}
+.gradient-tabs-block .tabs-container .tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  border-top-right-radius: 0.75rem;
+  border-top-left-radius: 0.75rem;
+  font-weight: bold;
+  background-color: #007399;
+  cursor: pointer;
+}
+.gradient-tabs-block .tabs-container .tab.active {
+  background-color: #2c944b;
+}
+.gradient-tabs-block .tab-panels {
+  position: relative;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel,
+.gradient-tabs-block .info-tab-panel-block {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel.is-active-tab, .gradient-tabs-block .wp-block-acb-info-tab-panel.is-selected, .gradient-tabs-block .wp-block-acb-info-tab-panel.active,
+.gradient-tabs-block .info-tab-panel-block.is-active-tab,
+.gradient-tabs-block .info-tab-panel-block.is-selected,
+.gradient-tabs-block .info-tab-panel-block.active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  max-height: none;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel .background-image,
+.gradient-tabs-block .info-tab-panel-block .background-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel .background-image img,
+.gradient-tabs-block .info-tab-panel-block .background-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel .content-container,
+.gradient-tabs-block .info-tab-panel-block .content-container {
+  position: relative;
+  z-index: 2;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel .content-container .content-box,
+.gradient-tabs-block .info-tab-panel-block .content-container .content-box {
+  max-width: 40%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  position: relative;
+}
+.gradient-tabs-block .wp-block-acb-info-tab-panel .content-container .content-box > *,
+.gradient-tabs-block .info-tab-panel-block .content-container .content-box > * {
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .gradient-tabs-block {
+    margin-bottom: 0;
+  }
+  .gradient-tabs-block .tabs-container {
+    flex-direction: column;
+    gap: 1px;
+  }
+  .gradient-tabs-block .tabs-container .tab {
+    border-radius: 0;
+    text-align: right;
+    padding-right: 1.25rem;
+  }
+  .gradient-tabs-block .wp-block-acb-info-tab-panel .content-container,
+  .gradient-tabs-block .info-tab-panel-block .content-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .gradient-tabs-block .wp-block-acb-info-tab-panel .content-container .content-box,
+  .gradient-tabs-block .info-tab-panel-block .content-container .content-box {
+    max-width: 100%;
+    padding: 1.5rem;
+    border-radius: 0;
+  }
+}

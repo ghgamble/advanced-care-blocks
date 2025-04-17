@@ -1,0 +1,27 @@
+.stats-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  
+    > .wp-block-group {
+      flex: 1 1 50%;
+      text-align: left;
+  
+      .wp-block-heading {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #1c4a7e;
+        margin-bottom: 0.25rem;
+      }
+  
+      .wp-block-paragraph {
+        font-size: 1rem;
+        color: #333;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      flex-wrap: nowrap; // prevent stacking
+    }
+}
+  

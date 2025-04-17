@@ -1,0 +1,16 @@
+{
+    "apiVersion": 2,
+    "name": "acb/swash-section",
+    "title": "Swash Background Section",
+    "category": "advancedcare-blocks",
+    "description": "A full-width background block with a swash shape and optional gradient, allowing alignwide content on top.",
+    "supports": {
+      "align": ["full"],
+      "html": false
+    },
+    "attributes": {},
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}
+  

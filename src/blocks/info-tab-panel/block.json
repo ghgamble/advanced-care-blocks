@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acb/info-tab-panel",
+    "title": "Tab Panel",
+    "category": "advancedcare-blocks",
+    "parent": [ "acb/info-with-tabs" ],
+    "description": "A content panel for an individual tab.",
+    "attributes": {
+      "label": {
+        "type": "string",
+        "default": "Tab"
+      },
+      "backgroundUrl": {
+        "type": "string",
+        "default": ""
+      },
+      "backgroundAlt": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    "supports": {
+      "reusable": false,
+      "html": false
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}
+  

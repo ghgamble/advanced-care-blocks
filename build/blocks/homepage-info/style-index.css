@@ -1,0 +1,136 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/homepage-info/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.homepage-info-block {
+  margin: 0;
+  padding: 0;
+}
+.homepage-info-block .top-section {
+  background: linear-gradient(to right, #00b4a9, #00587a);
+  padding: 0;
+  position: relative;
+}
+.homepage-info-block .top-section .content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.homepage-info-block .top-section .content-row .image-column {
+  flex: 0 0 40%;
+  max-width: 40%;
+  position: relative;
+  z-index: 2;
+}
+.homepage-info-block .top-section .content-row .image-column img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translateY(3rem);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+.homepage-info-block .top-section .content-row .text-column {
+  flex: 1;
+  max-width: 60%;
+  color: #fff;
+  margin-top: 6rem;
+}
+.homepage-info-block .top-section .content-row .text-column .quote {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.homepage-info-block .top-section .content-row .text-column .author {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.homepage-info-block .top-section .content-row .text-column .description {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.homepage-info-block .bottom-section {
+  background: #fff;
+  padding: 2rem 0 2.5rem 0;
+  margin-top: -8rem;
+  position: relative;
+}
+.homepage-info-block .bottom-section .stat-inner {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+}
+.homepage-info-block .bottom-section .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem;
+  text-align: left;
+  margin-left: 3rem;
+}
+.homepage-info-block .bottom-section .stat-grid .stat-item .stat-number {
+  color: #03678E;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.homepage-info-block .bottom-section .stat-grid .stat-item .stat-text {
+  font-size: 1rem;
+  color: #333;
+}
+.homepage-info-block .bottom-section .stat-grid .stat-item .remove-stat {
+  margin-top: 0.5rem;
+}
+.homepage-info-block .bottom-section button {
+  display: block;
+  margin: 3rem auto 0;
+}
+@media (max-width: 1082px) {
+  .homepage-info-block .top-section .content-row .text-column {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 960px) {
+  .homepage-info-block .top-section .content-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .homepage-info-block .top-section .content-row .text-column {
+    margin-top: 0;
+  }
+  .homepage-info-block .top-section .content-row .image-column,
+  .homepage-info-block .top-section .content-row .text-column {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .homepage-info-block .top-section .content-row .image-column img {
+    margin-top: 0;
+    max-height: 320px;
+  }
+  .homepage-info-block .top-section .content-row .text-column {
+    text-align: center;
+    padding: 1rem;
+  }
+  .homepage-info-block .bottom-section {
+    margin-top: 0;
+  }
+  .homepage-info-block .bottom-section .stat-inner {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .homepage-info-block .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .homepage-info-block .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

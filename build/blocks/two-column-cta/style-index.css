@@ -1,0 +1,91 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/two-column-cta/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-advancedcare-two-column-cta {
+  background-color: #282b35;
+  color: #fff;
+  width: 100%;
+  margin-bottom: 0;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide {
+  width: 100%;
+  padding-block: 3rem;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content {
+  padding-left: calc((100vw - 1100px) / 1.9);
+  padding-right: 2rem;
+  margin-left: 1rem;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content .wp-block-buttons {
+  margin-top: 2rem;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content .wp-block-buttons .wp-block-button__link {
+  background-color: #fff;
+  font-weight: bold;
+  border-radius: 999px;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-image {
+  flex: 1 1 50%;
+  min-height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.wp-block-advancedcare-two-column-cta .two-col-cta-image .image-placeholder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+  color: #fff;
+  min-height: 300px;
+}
+@media (max-width: 768px) {
+  .wp-block-advancedcare-two-column-cta .two-col-cta-wrapper {
+    flex-direction: column;
+  }
+  .wp-block-advancedcare-two-column-cta .two-col-cta-text,
+  .wp-block-advancedcare-two-column-cta .two-col-cta-image {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  .wp-block-advancedcare-two-column-cta .two-col-cta-image {
+    min-height: 250px;
+  }
+  .wp-block-advancedcare-two-column-cta .two-col-cta-text > .alignwide .inner-content {
+    padding-inline: 1rem;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -1,0 +1,37 @@
+.acb-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh; // Hero occupies 70% viewport height
+    overflow: hidden;
+  
+    .acb-hero-video,
+    .acb-hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .acb-hero-preview {
+      position: relative;
+      width: 100%;
+      height: 100%;
+  
+      video,
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .components-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2;
+      }
+    }
+  }
+  

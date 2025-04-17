@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acb/contact-section",
+    "title": "Contact Section",
+    "category": "advancedcare-blocks",
+    "description": "A full-width contact section with editable content and a form area.",
+    "keywords": ["contact", "form", "two-column", "section"],
+    "supports": {
+      "align": ["full"],
+      "html": false
+    },
+    "attributes": {
+      "backgroundColor": {
+        "type": "string",
+        "default": "#282B35"
+      }
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}
+  

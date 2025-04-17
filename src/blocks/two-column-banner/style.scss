@@ -1,0 +1,193 @@
+.wp-block-advancedcare-two-column-banner {
+  background-color: #282b35;
+  color: #fff;
+  width: 100%;
+
+  .two-col-banner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    position: relative;
+    background-color: #007399;
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(0, 115, 153, 0) 0%,
+        rgba(0, 115, 153, 0) 59.99%,
+        rgba(0, 115, 153, 0.3) 65%,
+        rgba(0, 115, 153, 0.6) 72%,
+        #007399 100%
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+  }
+
+  .two-col-banner-text {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    min-height: 100%;
+    max-height: 500px;
+
+    > .alignwide {
+      width: 100%;
+      padding-block: 3rem;
+
+      .inner-content {
+        padding-left: calc((100vw - 1100px) / 4) !important;
+        padding-right: 1rem;
+        margin-left: 1rem;
+
+        h2 {
+          font-size: 2.25rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+
+        .wp-block-buttons {
+          margin-top: 2rem;
+
+          .wp-block-button__link {
+            background-color: #fff;
+            font-weight: bold;
+            border-radius: 999px;
+            color: #282b35;
+          }
+        }
+      }
+    }
+
+    .quote-icon {
+      font-family: Georgia, serif;
+      font-size: 12rem;
+      color: #fff;
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .quote-icon.top {
+      top: 2rem;
+      left: 1rem;
+    }
+
+    .quote-icon.bottom {
+      bottom: 0rem;
+      right: 2rem;
+      transform: translateY(40%);
+    }
+  }
+
+  .two-col-banner-image {
+    flex: 1 1 50%;
+    min-height: 100%;
+    max-height: 500px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      max-height: 500px;
+    }
+
+    .image-controls {
+      position: relative;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 3;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #444;
+      color: #fff;
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 1140px) {
+    .two-col-banner-text {
+      .quote-icon.top {
+        left: -3rem;
+      }
+    }
+  }
+
+  @media (max-width: 1010px) {
+    .two-col-banner-text {
+      .quote-icon.top {
+        top: 0.5rem;
+      }
+
+      .quote-icon.bottom {
+        bottom: -2rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .two-col-banner-wrapper {
+      flex-direction: column;
+    }
+
+    .two-col-banner-text,
+    .two-col-banner-image {
+      flex: 1 1 100%;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .two-col-banner-image {
+      min-height: 250px;
+      max-height: none;
+
+      img {
+        max-height: none;
+      }
+    }
+
+    .two-col-banner-text > .alignwide .inner-content {
+      padding-inline: 1rem;
+    }
+
+    .quote-icon.top {
+      left: 1rem !important;
+      top: -0.5rem !important;
+    }
+
+    .quote-icon.bottom {
+      bottom: 0.5rem;
+      right: 1rem;
+    }
+  }
+}

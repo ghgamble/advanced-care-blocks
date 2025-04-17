@@ -1,0 +1,25 @@
+{
+  "name": "advanced-care-blocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.7.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^14.4.0",
+    "@wordpress/blocks": "^13.9.0",
+    "@wordpress/components": "^28.9.0",
+    "@wordpress/element": "^6.9.0",
+    "@wordpress/i18n": "^5.9.0",
+    "react-beautiful-dnd": "^13.1.1"
+  }
+}
