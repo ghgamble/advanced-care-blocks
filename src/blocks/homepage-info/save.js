@@ -19,7 +19,7 @@ export default function save({ attributes }) {
     descriptionFontSize,
     descriptionLineHeight,
     descriptionWeight,
-    stats= [],
+    stats = [],
     statNumberColor,
     statNumberFontSize,
     statNumberLineHeight,
@@ -37,7 +37,7 @@ export default function save({ attributes }) {
   return (
     <div {...blockProps}>
       {/* Top section */}
-      <div className="top-section">
+      <section className="top-section" role="region" aria-labelledby="homepage-info-quote">
         <div className="alignwide content-row">
           <div className="image-column">
             {mediaUrl && (
@@ -48,6 +48,7 @@ export default function save({ attributes }) {
             <RichText.Content
               tagName="h2"
               className="quote"
+              id="homepage-info-quote"
               value={`“${quote}”`}
               style={{
                 color: quoteColor || undefined,
@@ -80,15 +81,19 @@ export default function save({ attributes }) {
             />
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Bottom section */}
-      <div className="bottom-section">
+      <section className="bottom-section" role="region" aria-label="Statistics Section">
         <div className="alignwide">
           <div className="stat-inner">
             <div className="stat-grid">
               {stats.map((stat, index) => (
-                <div className="stat-item" key={index}>
+                <section
+                  className="stat-item"
+                  key={index}
+                  aria-label={`Stat ${index + 1}`}
+                >
                   <RichText.Content
                     tagName="strong"
                     className="stat-number"
@@ -111,12 +116,12 @@ export default function save({ attributes }) {
                       fontWeight: statTextWeight || undefined,
                     }}
                   />
-                </div>
+                </section>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

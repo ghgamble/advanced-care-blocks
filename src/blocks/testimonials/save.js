@@ -16,9 +16,15 @@ export default function Save({ attributes }) {
     <div {...useBlockProps.save({ className: 'testimonial-slider' })}>
       <button className="prev" aria-label="Previous testimonial">‹</button>
 
-      <div className="slides">
+      <div className="slides" role="region" aria-label="Testimonials">
         {testimonials.map((item, index) => (
-          <div className="testimonial" key={index}>
+          <div
+            className="testimonial"
+            key={index}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
+          >
             <div className="stars">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} filled={i < item.stars} />
@@ -32,9 +38,15 @@ export default function Save({ attributes }) {
 
       <button className="next" aria-label="Next testimonial">›</button>
 
-      <div className="dots">
+      <div className="dots" role="tablist" aria-label="Slide navigation">
         {testimonials.map((_, i) => (
-          <span key={i} className="dot" />
+          <span
+            key={i}
+            className="dot"
+            role="tab"
+            tabIndex="0"
+            aria-label={`Go to testimonial ${i + 1}`}
+          />
         ))}
       </div>
     </div>

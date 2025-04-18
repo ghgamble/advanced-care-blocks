@@ -25,6 +25,13 @@ export default function Edit({ attributes, setAttributes }) {
 
   const blockProps = useBlockProps({ className: 'styled-img-block' });
 
+  const handleKeyDown = (event, open) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      open();
+    }
+  };
+
   return (
     <>
       <InspectorControls>
@@ -86,7 +93,18 @@ export default function Edit({ attributes, setAttributes }) {
           type="image"
           value={mediaUrl}
           render={({ open }) => (
-            <div onClick={open} className={`styled-img-wrapper styled-img-${aspectRatio}`}>
+            <div
+              onClick={open}
+              onKeyDown={(e) => handleKeyDown(e, open)}
+              role="button"
+              tabIndex={0}
+              aria-label={
+                mediaUrl
+                  ? __('Edit uploaded image', 'styled-img')
+                  : __('Upload image', 'styled-img')
+              }
+              className={`styled-img-wrapper styled-img-${aspectRatio}`}
+            >
               {mediaUrl ? (
                 <div
                   className="styled-img-aspect"
@@ -99,7 +117,7 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                   <img
                     src={mediaUrl}
-                    alt={mediaAlt}
+                    alt={mediaAlt || ''}
                     style={{
                       width: '100%',
                       height: '100%',

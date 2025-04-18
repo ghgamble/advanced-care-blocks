@@ -22,18 +22,38 @@ export default function Edit({ attributes, setAttributes, clientId }) {
     setAttributes({ activeTabIndex: index });
   };
 
+  const handleKeyDown = (event, index) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleTabClick(index);
+    }
+  };
+
   return (
     <div {...blockProps}>
       {/* Tabs */}
-      <div className="tabs-container alignwide">
+      <div
+        className="tabs-container alignwide"
+        role="tablist"
+        aria-label={__('Information Tabs', 'acb')}
+      >
         {tabBlocks.map((block, index) => {
           const label = block.attributes.label || `Tab ${index + 1}`;
           const isActive = index === activeTabIndex;
+          const tabId = `tab-${clientId}-${index}`;
+          const panelId = `tabpanel-${clientId}-${index}`;
+
           return (
             <div
               key={block.clientId}
+              id={tabId}
+              role="tab"
+              tabIndex={isActive ? 0 : -1}
+              aria-selected={isActive}
+              aria-controls={panelId}
               className={`tab ${isActive ? 'active' : ''}`}
               onClick={() => handleTabClick(index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
             >
               <span>{label}</span>
             </div>
@@ -42,7 +62,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
       </div>
 
       {/* Panels */}
-      <div className="tab-panels">
+      <div className="tab-panels" role="presentation">
         <InnerBlocks
           allowedBlocks={['acb/info-tab-panel']}
           templateLock={false}

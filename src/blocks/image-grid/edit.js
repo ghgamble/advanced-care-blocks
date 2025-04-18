@@ -11,7 +11,8 @@ export default function Edit({ attributes, setAttributes }) {
     const newImages = media.map((img) => ({
       url: img.url,
       label: '',
-      alt: img.alt || ''
+      alt: img.alt || '',
+      id: img.id || img.url, // Use for stable draggable keys
     }));
     setAttributes({ images: newImages });
   };
@@ -54,7 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
           {(provided) => (
             <div className="grid-wrapper" ref={provided.innerRef} {...provided.droppableProps}>
               {images.map((img, index) => (
-                <Draggable key={index} draggableId={`img-${index}`} index={index}>
+                <Draggable key={img.id || `img-${index}`} draggableId={`${img.id || `img-${index}`}`} index={index}>
                   {(provided) => (
                     <div
                       className="styled-img-wrapper"
@@ -69,6 +70,7 @@ export default function Edit({ attributes, setAttributes }) {
                             type="text"
                             value={img.label || ''}
                             placeholder="Overlay label"
+                            aria-label={`Overlay label for image ${index + 1}`}
                             onChange={(e) => updateImageField(index, 'label', e.target.value)}
                           />
                         </div>
@@ -78,6 +80,7 @@ export default function Edit({ attributes, setAttributes }) {
                         className="alt-input"
                         value={img.alt || ''}
                         placeholder="Alt text"
+                        aria-label={`Alt text for image ${index + 1}`}
                         onChange={(e) => updateImageField(index, 'alt', e.target.value)}
                       />
                     </div>

@@ -6,11 +6,11 @@ import {
   PanelColorSettings,
   InspectorControls
 } from '@wordpress/block-editor';
-import { 
+import {
   Button,
   PanelBody,
   SelectControl,
-  RangeControl 
+  RangeControl
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -67,9 +67,7 @@ export default function Edit({ attributes, setAttributes }) {
   return (
     <>
       <InspectorControls>
-
-       {/* Quote */}
-
+        {/* Quote */}
         <PanelBody title="Quote Text Settings" initialOpen={false}>
           <RangeControl
             label="Font Size (px)"
@@ -111,7 +109,6 @@ export default function Edit({ attributes, setAttributes }) {
         </PanelBody>
 
         {/* Author */}
-
         <PanelBody title="Author Text Settings" initialOpen={false}>
           <RangeControl
             label="Font Size (px)"
@@ -121,7 +118,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={80}
             step={1}
           />
-
           <RangeControl
             label="Line Height"
             value={authorLineHeight || 1.4}
@@ -130,7 +126,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={2.5}
             step={0.1}
           />
-
           <SelectControl
             label="Font Weight"
             value={authorWeight}
@@ -140,9 +135,8 @@ export default function Edit({ attributes, setAttributes }) {
               { label: 'Light (300)', value: '300' },
               { label: 'Bold (700)', value: '700' }
             ]}
-            onChange={(val) => setAttributes({ quoteWeight: val })}
+            onChange={(val) => setAttributes({ authorWeight: val })}
           />
-
           <PanelColorSettings
             title="Text Color"
             colorSettings={[
@@ -156,7 +150,6 @@ export default function Edit({ attributes, setAttributes }) {
         </PanelBody>
 
         {/* Description */}
-
         <PanelBody title="Description Text Settings" initialOpen={false}>
           <RangeControl
             label="Font Size (px)"
@@ -166,7 +159,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={80}
             step={1}
           />
-
           <RangeControl
             label="Line Height"
             value={descriptionLineHeight || 1.4}
@@ -175,7 +167,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={2.5}
             step={0.1}
           />
-
           <SelectControl
             label="Font Weight"
             value={descriptionWeight}
@@ -187,7 +178,6 @@ export default function Edit({ attributes, setAttributes }) {
             ]}
             onChange={(val) => setAttributes({ descriptionWeight: val })}
           />
-
           <PanelColorSettings
             title="Text Color"
             colorSettings={[
@@ -201,7 +191,6 @@ export default function Edit({ attributes, setAttributes }) {
         </PanelBody>
 
         {/* Stat Number */}
-
         <PanelBody title="Stat Number Settings" initialOpen={false}>
           <RangeControl
             label="Font Size (px)"
@@ -211,7 +200,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={80}
             step={1}
           />
-
           <RangeControl
             label="Line Height"
             value={statNumberLineHeight || 1.4}
@@ -220,7 +208,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={2.5}
             step={0.1}
           />
-
           <SelectControl
             label="Font Weight"
             value={statNumberWeight}
@@ -232,7 +219,6 @@ export default function Edit({ attributes, setAttributes }) {
             ]}
             onChange={(val) => setAttributes({ statNumberWeight: val })}
           />
-
           <PanelColorSettings
             title="Text Color"
             colorSettings={[
@@ -255,7 +241,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={80}
             step={1}
           />
-
           <RangeControl
             label="Line Height"
             value={statTextLineHeight || 1.4}
@@ -264,7 +249,6 @@ export default function Edit({ attributes, setAttributes }) {
             max={2.5}
             step={0.1}
           />
-
           <SelectControl
             label="Font Weight"
             value={statTextWeight}
@@ -276,7 +260,6 @@ export default function Edit({ attributes, setAttributes }) {
             ]}
             onChange={(val) => setAttributes({ statTextWeight: val })}
           />
-
           <PanelColorSettings
             title="Text Color"
             colorSettings={[
@@ -288,7 +271,6 @@ export default function Edit({ attributes, setAttributes }) {
             ]}
           />
         </PanelBody>
-
       </InspectorControls>
 
       <div {...blockProps}>
@@ -306,7 +288,14 @@ export default function Edit({ attributes, setAttributes }) {
                 type="image"
                 value={mediaUrl}
                 render={({ open }) => (
-                  <div onClick={open} className="image-upload">
+                  <div
+                    onClick={open}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && open()}
+                    role="button"
+                    tabIndex={0}
+                    className="image-upload"
+                    aria-label={__('Upload or edit image', 'homepage-info')}
+                  >
                     {mediaUrl ? (
                       <img src={mediaUrl} alt={mediaAlt} />
                     ) : (
@@ -323,6 +312,7 @@ export default function Edit({ attributes, setAttributes }) {
                 value={quote}
                 onChange={(value) => setAttributes({ quote: value })}
                 placeholder={__('“Quote”', 'homepage-info')}
+                aria-label="Quote text"
                 style={{
                   color: quoteColor || undefined,
                   fontSize: typeof quoteFontSize === 'number' ? `${quoteFontSize}px` : undefined,
@@ -336,6 +326,7 @@ export default function Edit({ attributes, setAttributes }) {
                 value={author}
                 onChange={(value) => setAttributes({ author: value })}
                 placeholder={__('Author, Title', 'homepage-info')}
+                aria-label="Author name and title"
                 style={{
                   color: authorColor || undefined,
                   fontSize: typeof authorFontSize === 'number' ? `${authorFontSize}px` : undefined,
@@ -349,6 +340,7 @@ export default function Edit({ attributes, setAttributes }) {
                 value={description}
                 onChange={(value) => setAttributes({ description: value })}
                 placeholder={__('Add a paragraph about your facility...', 'homepage-info')}
+                aria-label="Description text"
                 style={{
                   color: descriptionColor || undefined,
                   fontSize: typeof descriptionFontSize === 'number' ? `${descriptionFontSize}px` : undefined,
@@ -373,6 +365,7 @@ export default function Edit({ attributes, setAttributes }) {
                       value={stat.number}
                       onChange={(value) => updateStat(index, 'number', value)}
                       placeholder={__('Number', 'homepage-info')}
+                      aria-label={`Stat number ${index + 1}`}
                       style={{
                         color: statNumberColor || undefined,
                         fontSize: typeof statNumberFontSize === 'number' ? `${statNumberFontSize}px` : undefined,
@@ -386,6 +379,7 @@ export default function Edit({ attributes, setAttributes }) {
                       value={stat.text}
                       onChange={(value) => updateStat(index, 'text', value)}
                       placeholder={__('Description', 'homepage-info')}
+                      aria-label={`Stat description ${index + 1}`}
                       style={{
                         color: statTextColor || undefined,
                         fontSize: typeof statTextFontSize === 'number' ? `${statTextFontSize}px` : undefined,
@@ -398,6 +392,7 @@ export default function Edit({ attributes, setAttributes }) {
                       onClick={() => removeStat(index)}
                       className="remove-stat"
                       size="small"
+                      aria-label={__('Remove stat', 'homepage-info') + ` ${stat.number || index + 1}`}
                     >
                       {__('Remove', 'homepage-info')}
                     </Button>

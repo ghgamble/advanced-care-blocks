@@ -46,7 +46,16 @@ export default function Edit({ attributes, setAttributes }) {
 							value={date}
 							onChange={(value) => setAttributes({ date: value })}
 						/>
-						<span className="job-button">Apply</span>
+						{buttonUrl && (
+							<a
+								href={buttonUrl}
+								target={openInNewTab ? '_blank' : undefined}
+								rel={openInNewTab ? 'noopener noreferrer' : undefined}
+								className="job-button"
+							>
+								Apply
+							</a>
+						)}
 					</div>
 				</div>
 			</div>

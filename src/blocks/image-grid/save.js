@@ -6,17 +6,17 @@ export default function Save({ attributes }) {
   return (
     <div {...useBlockProps.save({ className: 'alignwide styled-img-grid' })}>
       <div className="grid-wrapper">
-        {images.map((img, index) => (
-          <div className="styled-img-wrapper" key={index}>
+        {images.map((img) => (
+          <figure className="styled-img-wrapper" key={img.url}>
             <div className="image-inner">
               <img src={img.url} alt={img.alt || ''} />
               {img.label && (
-                <div className="img-overlay">
+                <figcaption className="img-overlay">
                   <span className="img-label">{img.label}</span>
-                </div>
+                </figcaption>
               )}
             </div>
-          </div>
+          </figure>
         ))}
       </div>
     </div>

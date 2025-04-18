@@ -1,10 +1,12 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-  const { mediaUrl } = attributes;
+  const { mediaUrl, mediaAlt = '' } = attributes;
 
   const blockProps = useBlockProps.save({
     className: 'wp-block-advancedcare-two-column-cta alignfull',
+    role: 'region',
+    'aria-label': 'Two Column Call to Action Block',
   });
 
   return (
@@ -21,8 +23,7 @@ export default function Save({ attributes }) {
           {mediaUrl && (
             <img
               src={mediaUrl}
-              alt=""
-              aria-hidden="true"
+              alt={mediaAlt}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           )}

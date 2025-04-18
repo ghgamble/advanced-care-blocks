@@ -2,11 +2,11 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 const TEMPLATE = [
   ['core/group', {}, [
-    ['core/heading', { placeholder: 'Stat value (e.g. 212)' }],
+    ['core/heading', { placeholder: 'Stat value (e.g. 212)', level: 3 }],
     ['core/paragraph', { placeholder: 'Stat label (e.g. Total Staff)' }]
   ]],
   ['core/group', {}, [
-    ['core/heading', { placeholder: 'Stat value (e.g. 3.2)' }],
+    ['core/heading', { placeholder: 'Stat value (e.g. 3.2)', level: 3 }],
     ['core/paragraph', { placeholder: 'Stat label (e.g. Patient to staff ratio)' }]
   ]]
 ];

@@ -1,5 +1,10 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { Button, TextControl, TextareaControl, RangeControl } from '@wordpress/components';
+import {
+  Button,
+  TextControl,
+  TextareaControl,
+  RangeControl
+} from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
   const { testimonials } = attributes;
@@ -26,10 +31,11 @@ export default function Edit({ attributes, setAttributes }) {
   };
 
   return (
-    <div {...useBlockProps()}>      
+    <div {...useBlockProps()}>
       <h3>Testimonials</h3>
       {testimonials.map((item, index) => (
-        <div key={index} className="testimonial-entry">
+        <div key={index} className="testimonial-entry" aria-label={`Testimonial ${index + 1}`}>
+          <h4>{`Testimonial ${index + 1}`}</h4>
           <RangeControl
             label="Stars"
             value={item.stars}
@@ -51,6 +57,7 @@ export default function Edit({ attributes, setAttributes }) {
             variant="secondary"
             onClick={() => removeTestimonial(index)}
             isDestructive
+            aria-label={`Delete testimonial ${index + 1}`}
           >
             Delete
           </Button>

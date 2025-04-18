@@ -2,9 +2,12 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
   const { label, backgroundUrl, backgroundAlt } = attributes;
+
   const blockProps = useBlockProps.save({
     className: 'info-tab-panel-block',
-    'data-label': label
+    'data-label': label,
+    role: 'tabpanel',
+    'aria-label': label || 'Tab panel'
   });
 
   return (
@@ -18,7 +21,6 @@ export default function save({ attributes }) {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
-          aria-hidden="true"
         >
           <img
             src={backgroundUrl}

@@ -26,14 +26,18 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
   const blockProps = useBlockProps({
     className: `wp-block-acb-info-tab-panel info-tab-panel-block ${isActiveTab ? 'is-active-tab' : ''}`,
+    'aria-label': label || __('Info Tab Panel', 'acb')
   });
 
   return (
     <>
       <InspectorControls>
         <PanelBody title={__('Tab Settings', 'acb')} initialOpen={true}>
-          <p><strong>{__('Tab Label', 'acb')}</strong></p>
+          <label htmlFor={`tab-label-${clientId}`} style={{ display: 'block', fontWeight: '600', marginBottom: '0.25rem' }}>
+            {__('Tab Label', 'acb')}
+          </label>
           <input
+            id={`tab-label-${clientId}`}
             type="text"
             value={label}
             onChange={(e) => setAttributes({ label: e.target.value })}
@@ -64,7 +68,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
       <div {...blockProps} data-label={label}>
         {backgroundUrl && (
-          <div className="background-image" aria-hidden="true">
+          <div className="background-image">
             <img
               src={backgroundUrl}
               alt={backgroundAlt || ''}

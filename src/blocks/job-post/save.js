@@ -12,14 +12,17 @@ export default function save({ attributes }) {
 				<RichText.Content tagName="span" className="job-title" value={title} />
 				<div className="job-meta">
 					<RichText.Content tagName="span" className="job-date" value={date} />
-					<a
-						href={buttonUrl || '#'}
-						className="job-button"
-						target={targetAttr}
-						rel={relAttr}
-					>
-						Apply
-					</a>
+					{buttonUrl && (
+						<a
+							href={buttonUrl}
+							className="job-button"
+							target={targetAttr}
+							rel={relAttr}
+							aria-label={`Apply for ${title || 'this position'}`}
+						>
+							Apply
+						</a>
+					)}
 				</div>
 			</div>
 		</div>

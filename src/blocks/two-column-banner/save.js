@@ -1,23 +1,23 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-  const { mediaUrl } = attributes;
+  const { mediaUrl, mediaAlt = '' } = attributes;
 
   const blockProps = useBlockProps.save({
     className: 'wp-block-advancedcare-two-column-banner alignfull',
+    role: 'region',
+    'aria-label': 'Testimonial Banner',
   });
 
   return (
     <div {...blockProps}>
       <div className="two-col-banner-wrapper">
-        
         <div className="two-col-banner-image">
-          <div className="gradient-overlay" aria-hidden="true"></div>  
+          <div className="gradient-overlay" aria-hidden="true"></div>
           {mediaUrl && (
             <img
               src={mediaUrl}
-              alt=""
-              aria-hidden="true"
+              alt={mediaAlt}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           )}
