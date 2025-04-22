@@ -1,0 +1,22 @@
+{
+  "apiVersion": 2,
+  "name": "acb/two-column-banner-simple",
+  "title": "Two Column Banner Simple",
+  "category": "advancedcare-blocks",
+  "description": "Two column banner with full-width image, simple with no quotes and faded background.",
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "mediaUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

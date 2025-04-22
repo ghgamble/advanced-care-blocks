@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "name": "acb/stats-row",
+  "title": "Stats Row",
+  "category": "advancedcare-blocks",
+  "description": "A horizontal flex layout for two stats that remains side-by-side on mobile. Supports core blocks like headings and paragraphs.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "name": "acb/heading-with-hzline",
+  "title": "Heading with Horizontal Line",
+  "category": "advancedcare-blocks",
+  "description": "A heading with a horizontal full length border.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
