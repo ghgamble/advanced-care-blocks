@@ -126,13 +126,13 @@
   
         .image-column,
         .text-column {
-          max-width: 100%;
+          max-width: 90%;
           flex: 1 1 100%;
         }
   
         .image-column img {
           margin-top: 0;
-          max-height: 320px;
+          // max-height: 320px;
         }
   
         .text-column {
