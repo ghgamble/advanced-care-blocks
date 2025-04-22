@@ -2,9 +2,10 @@
 /**
  * Plugin Name: Advanced Care Blocks
  * Description: Custom Gutenberg blocks for the Advanced Care website.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: GG Dev
  * Author URI: https://gg-dev.co/
+ * GitHub Plugin URI: https://github.com/ghgamble/advanced-care-blocks
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
