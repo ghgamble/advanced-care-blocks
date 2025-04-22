@@ -94,9 +94,12 @@
         min-height: 250px;
       }
   
-      .two-col-cta-text > .alignwide .inner-content {
-        padding-inline: 1rem;
+      .two-col-cta-text > .alignwide .inner-content h2 {
+        margin-top: 0;
       }
+      .two-col-cta-text>.alignwide {
+        padding-top: 1rem;
+    }
     }
   }
   

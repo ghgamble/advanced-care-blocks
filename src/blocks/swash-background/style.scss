@@ -27,5 +27,13 @@
       position: relative;
       z-index: 2;
     }
+  @media (max-width: 768px) {
+    .wpcf7 .form-flex p input[type=text], .wpcf7 .form-flex p input[type=email], .wpcf7 .form-flex p input[type=tel] {
+      width: 90% !important;
+    }
+    .wpcf7 .form-flex p {
+      gap: 0rem !important;
+    }
+  }
 }
   
