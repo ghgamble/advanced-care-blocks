@@ -138,6 +138,12 @@
     .next {
       font-size: 3rem;
     }
+    .prev {
+      left: -0.5rem;
+    }
+    .left {
+      right: -0.5rem;
+    }
   }
 
   // Visually hidden screen reader text utility
