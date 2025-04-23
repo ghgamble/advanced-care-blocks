@@ -10,11 +10,7 @@ export default function Save({ attributes }) {
           <figure
             className="styled-img-wrapper"
             key={img.url}
-            onClick={(e) => {
-              if (window.innerWidth <= 768) {
-                e.currentTarget.classList.toggle('touched');
-              }
-            }}
+            data-touchable
           >
             <div className="image-inner">
               <img src={img.url} alt={img.alt || ''} />
