@@ -74,7 +74,13 @@
         column-count: 2;
       }
     }
-  
+
+    @media (max-width: 768px) {
+      .styled-img-wrapper.touched .img-overlay {
+        opacity: 1 !important;
+      }
+    }
+      
     @media (max-width: 640px) {
       .grid-wrapper {
         column-count: 1;

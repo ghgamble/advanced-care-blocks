@@ -7,7 +7,15 @@ export default function Save({ attributes }) {
     <div {...useBlockProps.save({ className: 'alignwide styled-img-grid' })}>
       <div className="grid-wrapper">
         {images.map((img) => (
-          <figure className="styled-img-wrapper" key={img.url}>
+          <figure
+            className="styled-img-wrapper"
+            key={img.url}
+            onClick={(e) => {
+              if (window.innerWidth <= 768) {
+                e.currentTarget.classList.toggle('touched');
+              }
+            }}
+          >
             <div className="image-inner">
               <img src={img.url} alt={img.alt || ''} />
               {img.label && (
