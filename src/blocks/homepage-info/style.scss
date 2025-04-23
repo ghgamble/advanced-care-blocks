@@ -38,7 +38,7 @@
             margin-top: 6rem;
   
           .quote {
-            font-family: Georgia, serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -49,11 +49,13 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
+            font-family: 'Nunito Sans', sans-serif;
           }
   
           .description {
             font-size: 1rem;
             line-height: 1.6;
+            font-family: 'Nunito Sans', sans-serif;
           }
         }
       }
@@ -91,6 +93,7 @@
           .stat-text {
             font-size: 1rem;
             color: #333;
+            font-family: 'Nunito Sans', sans-serif;
           }
   
           .remove-stat {
