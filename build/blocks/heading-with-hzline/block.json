@@ -5,7 +5,8 @@
   "category": "advancedcare-blocks",
   "description": "A heading with a horizontal full length border.",
   "supports": {
-    "html": false
+    "html": false,
+    "spacing": true
   },
   "attributes": {},
   "editorScript": "file:./index.js",
