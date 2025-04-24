@@ -77,6 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ✅ Activate the first tab and panel on load
-    updateTabs(0);
+    updateTabs(1);
   });
 });
