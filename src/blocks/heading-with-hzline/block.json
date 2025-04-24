@@ -1,16 +1,36 @@
 {
-    "apiVersion": 2,
-    "name": "acb/heading-with-hzline",
-    "title": "Heading with Horizontal Line",
-    "category": "advancedcare-blocks",
-    "description": "A heading with a horizontal full length border.",
-    "supports": {
-      "html": false,
-      "spacing": true
+  "apiVersion": 2,
+  "name": "acb/heading-with-hzline",
+  "title": "Heading with Horizontal Line",
+  "category": "advancedcare-blocks",
+  "description": "A heading with a horizontal full length border.",
+  "supports": {
+    "html": false,
+    "spacing": true
+  },
+  "attributes": {
+    "lineWidth": {
+      "type": "string",
+      "default": "full"
     },
-    "attributes": {},
-    "editorScript": "file:./index.js",
-    "editorStyle": "file:./index.css",
-    "style": "file:./style-index.css"
-  }
-  
+    "lineMarginTop": {
+      "type": "string",
+      "default": ""
+    },
+    "lineMarginBottom": {
+      "type": "string",
+      "default": ""
+    },
+    "linePaddingTop": {
+      "type": "string",
+      "default": ""
+    },
+    "linePaddingBottom": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
