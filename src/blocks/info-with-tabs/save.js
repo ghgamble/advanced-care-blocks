@@ -1,15 +1,20 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-export default function save() {
+export default function save({ attributes }) {
+  const {
+    tabColor = '#007399',
+    activeTabColor = '#2c944b'
+  } = attributes;
+
   const blockProps = useBlockProps.save({
     className: 'gradient-tabs-block alignfull info-tabs-block',
-    role: 'presentation'
+    role: 'presentation',
+    'data-tab-color': tabColor,
+    'data-active-tab-color': activeTabColor
   });
 
   return (
     <div {...blockProps}>
-      {/* Tabs and panels are rendered by inner blocks (info-tab-panel),
-          which handle role="tabpanel" and aria attributes. */}
       <InnerBlocks.Content />
     </div>
   );

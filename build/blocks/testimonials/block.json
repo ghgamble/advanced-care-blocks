@@ -1,4 +1,5 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "acb/testimonials",
   "title": "Testimonials",
@@ -28,6 +29,18 @@
           }
         }
       }
+    },
+    "navigationColor": {
+      "type": "string",
+      "default": "#10b981"
+    },
+    "hoverColor": {
+      "type": "string",
+      "default": "#0f766e"
+    },
+    "customId": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": "file:./index.js",

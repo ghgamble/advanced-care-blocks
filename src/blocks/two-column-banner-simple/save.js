@@ -1,10 +1,19 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-  const { mediaUrl, mediaAlt = '' } = attributes;
+  const {
+    mediaUrl,
+    mediaAlt = '',
+    backgroundColor = '#007399',
+    gradientStopColor = '#007399'
+  } = attributes;
 
   const blockProps = useBlockProps.save({
     className: 'wp-block-advancedcare-two-column-banner-simple alignfull',
+    style: {
+      '--base-color': backgroundColor,
+      '--gradient-stop': gradientStopColor
+    },
     role: 'region',
     'aria-label': 'Simple Two-Column Banner',
   });
@@ -12,7 +21,6 @@ export default function Save({ attributes }) {
   return (
     <div {...blockProps}>
       <div className="two-col-banner-simple-wrapper">
-
         <div className="two-col-banner-simple-image">
           <div className="gradient-overlay" aria-hidden="true"></div>
           {mediaUrl && (
@@ -23,7 +31,6 @@ export default function Save({ attributes }) {
             />
           )}
         </div>
-
         <div className="two-col-banner-simple-text">
           <div className="alignwide">
             <div className="inner-content">
@@ -31,7 +38,6 @@ export default function Save({ attributes }) {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

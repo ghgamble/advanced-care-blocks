@@ -1,12 +1,13 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-  const { mediaUrl, mediaAlt = '' } = attributes;
+  const { mediaUrl, mediaAlt = '', backgroundColor = '#282b35' } = attributes;
 
   const blockProps = useBlockProps.save({
     className: 'wp-block-advancedcare-two-column-cta alignfull',
     role: 'region',
     'aria-label': 'Two Column Call to Action Block',
+    style: { backgroundColor },
   });
 
   return (

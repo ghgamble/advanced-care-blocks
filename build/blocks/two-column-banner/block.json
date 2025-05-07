@@ -1,9 +1,10 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "acb/two-column-banner",
   "title": "Two Column Banner",
   "category": "advancedcare-blocks",
-  "description": "Two column banner with full-width image, quote and faded background.",
+  "description": "Two column banner with full-width image, quote, and editable background and overlay end color.",
   "supports": {
     "align": [
       "full"
@@ -14,6 +15,18 @@
     "mediaUrl": {
       "type": "string",
       "default": ""
+    },
+    "mediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#007399"
+    },
+    "gradientEndColor": {
+      "type": "string",
+      "default": "#007399"
     }
   },
   "editorScript": "file:./index.js",

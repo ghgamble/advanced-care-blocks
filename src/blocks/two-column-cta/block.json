@@ -12,6 +12,14 @@
       "mediaUrl": {
         "type": "string",
         "default": ""
+      },
+      "mediaAlt": {
+        "type": "string",
+        "default": ""
+      },
+      "backgroundColor": {
+        "type": "string",
+        "default": "#282b35"
       }
     },
     "editorScript": "file:./index.js",

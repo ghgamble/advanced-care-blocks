@@ -13,6 +13,14 @@
     "activeTabIndex": {
       "type": "number",
       "default": 0
+    },
+    "tabColor": {
+      "type": "string",
+      "default": "#007399"
+    },
+    "activeTabColor": {
+      "type": "string",
+      "default": "#2c944b"
     }
   },
   "editorScript": "file:./index.js",

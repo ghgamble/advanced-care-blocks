@@ -4,7 +4,8 @@ import {
   MediaUpload,
   RichText,
   PanelColorSettings,
-  InspectorControls
+  InspectorControls,
+  InnerBlocks
 } from '@wordpress/block-editor';
 import {
   Button,
@@ -32,41 +33,25 @@ export default function Edit({ attributes, setAttributes }) {
     descriptionFontSize,
     descriptionLineHeight,
     descriptionWeight,
-    stats = [],
-    statNumberColor,
-    statNumberFontSize,
-    statNumberLineHeight,
-    statNumberWeight,
-    statTextColor,
-    statTextFontSize,
-    statTextLineHeight,
-    statTextWeight,
+    backgroundGradient
   } = attributes;
-
-  const updateStat = (index, key, value) => {
-    const updated = [...stats];
-    updated[index][key] = value;
-    setAttributes({ stats: updated });
-  };
-
-  const addStat = () => {
-    const updated = [
-      ...stats,
-      { number: __('Stat Number', 'homepage-info'), text: __('Stat description', 'homepage-info') },
-    ];
-    setAttributes({ stats: updated });
-  };
-
-  const removeStat = (index) => {
-    const updated = stats.filter((_, i) => i !== index);
-    setAttributes({ stats: updated });
-  };
 
   const blockProps = useBlockProps({ className: 'alignfull homepage-info-block' });
 
   return (
     <>
       <InspectorControls>
+        {/* Background Gradient */}
+        <PanelBody title="Background Gradient" initialOpen={false}>
+          <textarea
+            value={backgroundGradient}
+            onChange={(e) => setAttributes({ backgroundGradient: e.target.value })}
+            placeholder="e.g. linear-gradient(to right, #036938, #8DC43F)"
+            rows={3}
+            style={{ width: '100%', fontFamily: 'monospace' }}
+          />
+        </PanelBody>
+
         {/* Quote */}
         <PanelBody title="Quote Text Settings" initialOpen={false}>
           <RangeControl
@@ -98,13 +83,11 @@ export default function Edit({ attributes, setAttributes }) {
           />
           <PanelColorSettings
             title="Text Color"
-            colorSettings={[
-              {
-                value: quoteColor,
-                onChange: (color) => setAttributes({ quoteColor: color }),
-                label: 'Quote Color'
-              }
-            ]}
+            colorSettings={[{
+              value: quoteColor,
+              onChange: (color) => setAttributes({ quoteColor: color }),
+              label: 'Quote Color'
+            }]}
           />
         </PanelBody>
 
@@ -139,13 +122,11 @@ export default function Edit({ attributes, setAttributes }) {
           />
           <PanelColorSettings
             title="Text Color"
-            colorSettings={[
-              {
-                value: authorColor,
-                onChange: (color) => setAttributes({ authorColor: color }),
-                label: 'Author Color'
-              }
-            ]}
+            colorSettings={[{
+              value: authorColor,
+              onChange: (color) => setAttributes({ authorColor: color }),
+              label: 'Author Color'
+            }]}
           />
         </PanelBody>
 
@@ -180,111 +161,21 @@ export default function Edit({ attributes, setAttributes }) {
           />
           <PanelColorSettings
             title="Text Color"
-            colorSettings={[
-              {
-                value: descriptionColor,
-                onChange: (color) => setAttributes({ descriptionColor: color }),
-                label: 'Description Color'
-              }
-            ]}
-          />
-        </PanelBody>
-
-        {/* Stat Number */}
-        <PanelBody title="Stat Number Settings" initialOpen={false}>
-          <RangeControl
-            label="Font Size (px)"
-            value={statNumberFontSize}
-            onChange={(size) => setAttributes({ statNumberFontSize: size })}
-            min={12}
-            max={80}
-            step={1}
-          />
-          <RangeControl
-            label="Line Height"
-            value={statNumberLineHeight || 1.4}
-            onChange={(val) => setAttributes({ statNumberLineHeight: val })}
-            min={1}
-            max={2.5}
-            step={0.1}
-          />
-          <SelectControl
-            label="Font Weight"
-            value={statNumberWeight}
-            options={[
-              { label: 'Default (700)', value: '' },
-              { label: 'Normal (400)', value: '400' },
-              { label: 'Light (300)', value: '300' },
-              { label: 'Bold (700)', value: '700' }
-            ]}
-            onChange={(val) => setAttributes({ statNumberWeight: val })}
-          />
-          <PanelColorSettings
-            title="Text Color"
-            colorSettings={[
-              {
-                value: statNumberColor,
-                onChange: (color) => setAttributes({ statNumberColor: color }),
-                label: 'Stat Number Color'
-              }
-            ]}
-          />
-        </PanelBody>
-
-        {/* Stat Text */}
-        <PanelBody title="Stat Text Settings" initialOpen={false}>
-          <RangeControl
-            label="Font Size (px)"
-            value={statTextFontSize}
-            onChange={(size) => setAttributes({ statTextFontSize: size })}
-            min={12}
-            max={80}
-            step={1}
-          />
-          <RangeControl
-            label="Line Height"
-            value={statTextLineHeight || 1.4}
-            onChange={(val) => setAttributes({ statTextLineHeight: val })}
-            min={1}
-            max={2.5}
-            step={0.1}
-          />
-          <SelectControl
-            label="Font Weight"
-            value={statTextWeight}
-            options={[
-              { label: 'Default (300)', value: '' },
-              { label: 'Normal (400)', value: '400' },
-              { label: 'Light (300)', value: '300' },
-              { label: 'Bold (700)', value: '700' }
-            ]}
-            onChange={(val) => setAttributes({ statTextWeight: val })}
-          />
-          <PanelColorSettings
-            title="Text Color"
-            colorSettings={[
-              {
-                value: statTextColor,
-                onChange: (color) => setAttributes({ statTextColor: color }),
-                label: 'Stat Text Color'
-              }
-            ]}
+            colorSettings={[{
+              value: descriptionColor,
+              onChange: (color) => setAttributes({ descriptionColor: color }),
+              label: 'Description Color'
+            }]}
           />
         </PanelBody>
       </InspectorControls>
 
       <div {...blockProps}>
-        {/* Top section */}
-        <div className="top-section">
+        <div className="top-section" style={{ background: backgroundGradient }}>
           <div className="alignwide content-row">
             <div className="image-column">
               <MediaUpload
-                onSelect={(media) =>
-                  setAttributes({
-                    mediaUrl: media.url,
-                    mediaAlt: media.alt || '',
-                  })
-                }
+                onSelect={(media) => setAttributes({ mediaUrl: media.url, mediaAlt: media.alt || '' })}
                 type="image"
                 value={mediaUrl}
                 render={({ open }) => (
@@ -296,11 +187,7 @@ export default function Edit({ attributes, setAttributes }) {
                     className="image-upload"
                     aria-label={__('Upload or edit image', 'homepage-info')}
                   >
-                    {mediaUrl ? (
-                      <img src={mediaUrl} alt={mediaAlt} />
-                    ) : (
-                      <Button variant="secondary">{__('Upload Image', 'homepage-info')}</Button>
-                    )}
+                    {mediaUrl ? <img src={mediaUrl} alt={mediaAlt} /> : <Button variant="secondary">{__('Upload Image', 'homepage-info')}</Button>}
                   </div>
                 )}
               />
@@ -313,12 +200,7 @@ export default function Edit({ attributes, setAttributes }) {
                 onChange={(value) => setAttributes({ quote: value })}
                 placeholder={__('“Quote”', 'homepage-info')}
                 aria-label="Quote text"
-                style={{
-                  color: quoteColor || undefined,
-                  fontSize: typeof quoteFontSize === 'number' ? `${quoteFontSize}px` : undefined,
-                  lineHeight: quoteLineHeight || undefined,
-                  fontWeight: quoteWeight || undefined,
-                }}
+                style={{ color: quoteColor, fontSize: quoteFontSize ? `${quoteFontSize}px` : undefined, lineHeight: quoteLineHeight, fontWeight: quoteWeight }}
               />
               <RichText
                 tagName="p"
@@ -327,12 +209,7 @@ export default function Edit({ attributes, setAttributes }) {
                 onChange={(value) => setAttributes({ author: value })}
                 placeholder={__('Author, Title', 'homepage-info')}
                 aria-label="Author name and title"
-                style={{
-                  color: authorColor || undefined,
-                  fontSize: typeof authorFontSize === 'number' ? `${authorFontSize}px` : undefined,
-                  lineHeight: authorLineHeight || undefined,
-                  fontWeight: authorWeight || undefined,
-                }}
+                style={{ color: authorColor, fontSize: authorFontSize ? `${authorFontSize}px` : undefined, lineHeight: authorLineHeight, fontWeight: authorWeight }}
               />
               <RichText
                 tagName="p"
@@ -341,68 +218,14 @@ export default function Edit({ attributes, setAttributes }) {
                 onChange={(value) => setAttributes({ description: value })}
                 placeholder={__('Add a paragraph about your facility...', 'homepage-info')}
                 aria-label="Description text"
-                style={{
-                  color: descriptionColor || undefined,
-                  fontSize: typeof descriptionFontSize === 'number' ? `${descriptionFontSize}px` : undefined,
-                  lineHeight: descriptionLineHeight || undefined,
-                  fontWeight: descriptionWeight || undefined,
-                }}
+                style={{ color: descriptionColor, fontSize: descriptionFontSize ? `${descriptionFontSize}px` : undefined, lineHeight: descriptionLineHeight, fontWeight: descriptionWeight }}
               />
-            </div>
-          </div>
-        </div>
 
-        {/* Bottom section */}
-        <div className="bottom-section">
-          <div className="alignwide">
-            <div className="stat-inner">
-              <div className="stat-grid">
-                {stats.map((stat, index) => (
-                  <div className="stat-item" key={index}>
-                    <RichText
-                      tagName="strong"
-                      className="stat-number"
-                      value={stat.number}
-                      onChange={(value) => updateStat(index, 'number', value)}
-                      placeholder={__('Number', 'homepage-info')}
-                      aria-label={`Stat number ${index + 1}`}
-                      style={{
-                        color: statNumberColor || undefined,
-                        fontSize: typeof statNumberFontSize === 'number' ? `${statNumberFontSize}px` : undefined,
-                        lineHeight: statNumberLineHeight || undefined,
-                        fontWeight: statNumberWeight || undefined,
-                      }}
-                    />
-                    <RichText
-                      tagName="p"
-                      className="stat-text"
-                      value={stat.text}
-                      onChange={(value) => updateStat(index, 'text', value)}
-                      placeholder={__('Description', 'homepage-info')}
-                      aria-label={`Stat description ${index + 1}`}
-                      style={{
-                        color: statTextColor || undefined,
-                        fontSize: typeof statTextFontSize === 'number' ? `${statTextFontSize}px` : undefined,
-                        lineHeight: statTextLineHeight || undefined,
-                        fontWeight: statTextWeight || undefined,
-                      }}
-                    />
-                    <Button
-                      isDestructive
-                      onClick={() => removeStat(index)}
-                      className="remove-stat"
-                      size="small"
-                      aria-label={__('Remove stat', 'homepage-info') + ` ${stat.number || index + 1}`}
-                    >
-                      {__('Remove', 'homepage-info')}
-                    </Button>
-                  </div>
-                ))}
+              {/* InnerBlocks go directly under the description */}
+              <div className="custom-content">
+                <InnerBlocks />
               </div>
             </div>
-            <Button variant="primary" onClick={addStat}>
-              {__('+ Add Stat', 'homepage-info')}
-            </Button>
           </div>
         </div>
       </div>

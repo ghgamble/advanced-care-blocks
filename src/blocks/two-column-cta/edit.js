@@ -5,23 +5,33 @@ import {
   InnerBlocks,
   InspectorControls,
 } from '@wordpress/block-editor';
-import { Button, TextControl, PanelBody } from '@wordpress/components';
+import { Button, TextControl, PanelBody, ColorPalette } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+const DEFAULT_BG = '#282b35';
+
 export default function Edit({ attributes, setAttributes }) {
-  const { mediaUrl, mediaAlt = '' } = attributes;
+  const { mediaUrl, mediaAlt = '', backgroundColor = DEFAULT_BG } = attributes;
 
   const blockProps = useBlockProps({
     className: 'wp-block-advancedcare-two-column-cta alignfull',
     role: 'region',
     'aria-label': __('Two Column Call to Action Block', 'advancedcare'),
+    style: { backgroundColor },
   });
 
   return (
     <>
       <InspectorControls>
+        <PanelBody title={__('Background Color', 'advancedcare')} initialOpen={true}>
+          <ColorPalette
+            value={backgroundColor}
+            onChange={(color) => setAttributes({ backgroundColor: color })}
+          />
+        </PanelBody>
+
         {mediaUrl && (
-          <PanelBody title={__('Image Accessibility', 'advancedcare')} initialOpen={true}>
+          <PanelBody title={__('Image Accessibility', 'advancedcare')} initialOpen={false}>
             <TextControl
               label={__('Alt text (alternative text)', 'advancedcare')}
               value={mediaAlt}

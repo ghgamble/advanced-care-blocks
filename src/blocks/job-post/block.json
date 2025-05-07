@@ -25,6 +25,10 @@
       "openInNewTab": {
         "type": "boolean",
         "default": true
+      },
+      "buttonColor": {
+        "type": "string",
+        "default": "#52b79a"
       }
     },
     "editorScript": "file:./index.js",

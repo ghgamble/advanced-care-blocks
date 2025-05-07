@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { title, date, buttonUrl, openInNewTab } = attributes;
+	const { title, date, buttonUrl, openInNewTab, buttonColor = '#52b79a' } = attributes;
 
 	const relAttr = openInNewTab ? 'noopener noreferrer' : undefined;
 	const targetAttr = openInNewTab ? '_blank' : undefined;
@@ -16,6 +16,7 @@ export default function save({ attributes }) {
 						<a
 							href={buttonUrl}
 							className="job-button"
+							style={{ backgroundColor: buttonColor }}
 							target={targetAttr}
 							rel={relAttr}
 							aria-label={`Apply for ${title || 'this position'}`}

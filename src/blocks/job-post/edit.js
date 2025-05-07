@@ -6,11 +6,12 @@ import {
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	ToggleControl
+	ToggleControl,
+	ColorPicker
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, date, buttonUrl, openInNewTab } = attributes;
+	const { title, date, buttonUrl, openInNewTab, buttonColor = '#52b79a' } = attributes;
 
 	return (
 		<>
@@ -25,6 +26,13 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Open in new tab"
 						checked={openInNewTab}
 						onChange={(value) => setAttributes({ openInNewTab: value })}
+					/>
+				</PanelBody>
+				<PanelBody title="Button Color" initialOpen={false}>
+					<ColorPicker
+						color={buttonColor}
+						onChangeComplete={(value) => setAttributes({ buttonColor: value.hex })}
+						disableAlpha
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -51,6 +59,7 @@ export default function Edit({ attributes, setAttributes }) {
 							target={openInNewTab ? '_blank' : undefined}
 							rel={openInNewTab ? 'noopener noreferrer' : undefined}
 							className="job-button"
+							style={{ backgroundColor: buttonColor }}
 						>
 							Apply
 						</a>

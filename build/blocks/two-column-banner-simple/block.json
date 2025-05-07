@@ -1,4 +1,5 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "acb/two-column-banner-simple",
   "title": "Two Column Banner Simple",
@@ -14,6 +15,18 @@
     "mediaUrl": {
       "type": "string",
       "default": ""
+    },
+    "mediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#007399"
+    },
+    "gradientStopColor": {
+      "type": "string",
+      "default": "#007399"
     }
   },
   "editorScript": "file:./index.js",

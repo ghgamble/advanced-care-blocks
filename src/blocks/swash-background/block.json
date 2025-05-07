@@ -8,7 +8,12 @@
       "align": ["full"],
       "html": false
     },
-    "attributes": {},
+    "attributes": {
+      "backgroundStyle": {
+        "type": "string",
+        "default": "linear-gradient(135deg, #34d399, #0369a1)"
+      }
+    },
     "editorScript": "file:./index.js",
     "editorStyle": "file:./index.css",
     "style": "file:./style-index.css"

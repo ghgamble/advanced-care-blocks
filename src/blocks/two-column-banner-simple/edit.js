@@ -5,14 +5,25 @@ import {
   InnerBlocks,
   InspectorControls
 } from '@wordpress/block-editor';
-import { Button, TextControl, PanelBody } from '@wordpress/components';
+import { Button, TextControl, PanelBody, ColorPalette } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+const DEFAULT_COLOR = '#007399';
+
 export default function Edit({ attributes, setAttributes }) {
-  const { mediaUrl, mediaAlt = '' } = attributes;
+  const {
+    mediaUrl,
+    mediaAlt = '',
+    backgroundColor = DEFAULT_COLOR,
+    gradientStopColor = DEFAULT_COLOR,
+  } = attributes;
 
   const blockProps = useBlockProps({
     className: 'wp-block-advancedcare-two-column-banner-simple alignfull',
+    style: {
+      '--base-color': backgroundColor,
+      '--gradient-stop': gradientStopColor
+    },
     role: 'region',
     'aria-label': __('Simple Two-Column Banner', 'advancedcare'),
   });
@@ -30,6 +41,18 @@ export default function Edit({ attributes, setAttributes }) {
             />
           </PanelBody>
         )}
+        <PanelBody title="Colors" initialOpen={true}>
+          <ColorPalette
+            label="Base Background Color"
+            value={backgroundColor}
+            onChange={(color) => setAttributes({ backgroundColor: color })}
+          />
+          <ColorPalette
+            label="Gradient Stop Color"
+            value={gradientStopColor}
+            onChange={(color) => setAttributes({ gradientStopColor: color })}
+          />
+        </PanelBody>
       </InspectorControls>
 
       <div {...blockProps}>
@@ -42,7 +65,6 @@ export default function Edit({ attributes, setAttributes }) {
                 <p>{__('No image selected', 'advancedcare')}</p>
               </div>
             )}
-
             <MediaUploadCheck>
               <MediaUpload
                 onSelect={(media) =>
@@ -52,15 +74,7 @@ export default function Edit({ attributes, setAttributes }) {
                 value={mediaUrl}
                 render={({ open }) => (
                   <div className="image-controls">
-                    <Button
-                      onClick={open}
-                      variant="secondary"
-                      aria-label={
-                        mediaUrl
-                          ? __('Replace banner image', 'advancedcare')
-                          : __('Upload banner image', 'advancedcare')
-                      }
-                    >
+                    <Button onClick={open} variant="secondary">
                       {mediaUrl ? __('Replace Image', 'advancedcare') : __('Upload Image', 'advancedcare')}
                     </Button>
                   </div>
@@ -68,15 +82,12 @@ export default function Edit({ attributes, setAttributes }) {
               />
             </MediaUploadCheck>
           </div>
-
           <div className="two-col-banner-simple-text">
             <div className="alignwide">
               <div className="inner-content">
                 <InnerBlocks
                   allowedBlocks={['core/heading']}
-                  template={[
-                    ['core/heading', { placeholder: __('Add banner text', 'advancedcare') }]
-                  ]}
+                  template={[['core/heading', { placeholder: __('Add banner text', 'advancedcare') }]]}
                 />
               </div>
             </div>

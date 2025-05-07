@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const panels = block.querySelectorAll('.info-tab-panel-block');
     if (!panels.length) return;
 
+    const tabColor = block.dataset.tabColor || '#007399';
+    const activeTabColor = block.dataset.activeTabColor || '#2c944b';
+
     const tabContainer = document.createElement('div');
     tabContainer.className = 'tabs-container alignwide';
     tabContainer.setAttribute('role', 'tablist');
@@ -15,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const panelId = `tabpanel-${block.dataset.blockId || index}-${index}`;
       const label = panel.dataset.label || `Tab ${index + 1}`;
 
-      // Create tab element
       const tab = document.createElement('div');
       tab.className = 'tab';
       tab.id = tabId;
@@ -24,14 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
       tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
       tab.innerHTML = `<span>${label}</span>`;
+      tab.style.backgroundColor = index === 0 ? activeTabColor : tabColor;
 
-      // Click handler
       tab.addEventListener('click', () => {
         updateTabs(index);
         tab.focus();
       });
 
-      // Keyboard support
       tab.addEventListener('keydown', (e) => {
         const tabs = Array.from(tabContainer.querySelectorAll('.tab'));
         let newIndex = index;
@@ -46,19 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Set panel attributes
       panel.id = panelId;
       panel.setAttribute('role', 'tabpanel');
       panel.setAttribute('aria-labelledby', tabId);
-      panel.hidden = true; // default hidden
+      panel.hidden = true;
 
       tabContainer.appendChild(tab);
     });
 
-    // Insert the tab container before the first panel
     block.insertBefore(tabContainer, panels[0]);
 
-    // Update tab and panel visibility
     function updateTabs(activeIndex) {
       const allTabs = tabContainer.querySelectorAll('.tab');
       const allPanels = block.querySelectorAll('.info-tab-panel-block');
@@ -68,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tab.classList.toggle('active', selected);
         tab.setAttribute('aria-selected', selected.toString());
         tab.setAttribute('tabindex', selected ? '0' : '-1');
+        tab.style.backgroundColor = selected ? activeTabColor : tabColor;
       });
 
       allPanels.forEach((panel, i) => {
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // ✅ Activate the first tab and panel on load
+    // Load with the first tab active
     updateTabs(1);
   });
 });
