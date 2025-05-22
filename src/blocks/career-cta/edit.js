@@ -1,8 +1,15 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Edit() {
+  const blockProps = useBlockProps({ className: 'career-cta-block' });
+
+  const nurseImage =
+    typeof window !== 'undefined' && window.acbBlockAssets?.nurseImage
+      ? window.acbBlockAssets.nurseImage
+      : '/wp-content/plugins/advanced-care-blocks/src/nurse.png';
+
   return (
-    <div {...useBlockProps({ className: 'career-cta-block' })}>
+    <div {...blockProps}>
       <div className="cta-wrapper">
         <div className="cta-content">
           <InnerBlocks
@@ -15,7 +22,7 @@ export default function Edit() {
         </div>
         <div className="cta-image">
           <img
-            src={`${window.acbBlockAssets?.nurseImage || '/wp-content/plugins/advanced-care-blocks/src/nurse.png'}`}
+            src={nurseImage}
             alt=""
             role="presentation"
             aria-hidden="true"
