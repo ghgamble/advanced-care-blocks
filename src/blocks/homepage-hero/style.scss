@@ -31,6 +31,13 @@
         top: 1rem;
         right: 1rem;
         z-index: 2;
+        border: 3px solid #000;
+        color: #000;
+        background: #fff;
+        font-weight: 700;
+        &:hover {
+          background: #fff;
+        }
       }
     }
   }

@@ -122,6 +122,17 @@
       bottom: 1rem;
       right: 1rem;
       z-index: 3;
+
+      .components-button {
+        margin-top: 1rem;
+        margin-left: -7rem;
+        border: 2px solid #000;
+        z-index: 2 !important;
+        position: relative;
+        color: #000;
+        background: #fff;
+        font-weight: 700;
+      }
     }
 
     .image-placeholder {

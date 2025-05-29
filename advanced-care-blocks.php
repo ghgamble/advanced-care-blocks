@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Care Blocks
  * Description: Custom Gutenberg blocks for the Advanced Care website.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: GG Dev
  * Author URI: https://gg-dev.co/
  * GitHub Plugin URI: https://github.com/ghgamble/advanced-care-blocks
